@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "furnitureremovalsandiego.com" }],
+      "destination": "https://www.furnitureremovalsandiego.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/book",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
+}
