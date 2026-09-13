@@ -14,7 +14,7 @@ import {
   money,
   quote,
 } from "@/lib/site";
-import { furnitureByCategory } from "@/lib/furniture";
+import { furnitureByCategory, FURNITURE } from "@/lib/furniture";
 import { faqJsonLd, localBusinessJsonLd, pageMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
@@ -94,7 +94,7 @@ function Home() {
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
         <p className="text-xs font-semibold uppercase tracking-widest text-kelp">What we take</p>
         <h2 className="mt-2 max-w-xl font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-          Forty kinds of furniture. One pickup.
+          {FURNITURE.length} kinds of furniture. One pickup.
         </h2>
         <p className="mt-3 max-w-xl text-sm text-mist">
           Recliners, sectionals, cribs, china cabinets — each piece has its own page and a posted
