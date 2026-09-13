@@ -12,8 +12,12 @@ import {
 } from "@/lib/site";
 import { BookLink } from "./buttons";
 
-export function Estimator() {
-  const [counts, setCounts] = useState<Record<ItemId, number>>(DEFAULT_COUNTS);
+export function Estimator({
+  initialCounts = DEFAULT_COUNTS,
+}: {
+  initialCounts?: Record<ItemId, number>;
+}) {
+  const [counts, setCounts] = useState<Record<ItemId, number>>(initialCounts);
   const [service, setService] = useState<ServiceId>("full");
 
   const result = useMemo(() => quote(counts, service), [counts, service]);

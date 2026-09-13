@@ -1,4 +1,5 @@
 import { FAQS, PLACES, SITE, type Place, placePath } from "./site";
+import { furniturePath, type FurniturePiece } from "./furniture";
 
 export const GEO = {
   lat: 32.7196,
@@ -95,7 +96,13 @@ export function localBusinessJsonLd(area?: Place) {
     areaServed: area
       ? [
           { "@type": "Place", name: areaName },
-          { "@type": "PostalAddress", addressLocality: area.name, postalCode: area.zip, addressRegion: "CA", addressCountry: "US" },
+          {
+            "@type": "PostalAddress",
+            addressLocality: area.name,
+            postalCode: area.zip,
+            addressRegion: "CA",
+            addressCountry: "US",
+          },
           { "@type": "AdministrativeArea", name: "San Diego County" },
         ]
       : [
@@ -219,6 +226,54 @@ export function placeFaqs(place: Place) {
     {
       q: `Do you offer same-day furniture pickup in ${place.name}?`,
       a: `Yes. Crews run ${place.name} and nearby ${place.nearby.slice(0, 3).join(", ")} Monday–Saturday, 9am–4pm. Book a window online or text a photo to ${SITE.textDisplay}.`,
+    },
+  ];
+}
+
+export function furnitureBreadcrumbJsonLd(piece: FurniturePiece) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE.url}/` },
+      { "@type": "ListItem", position: 2, name: "What we take", item: `${SITE.url}/what-we-remove` },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: `${piece.name} removal`,
+        item: `${SITE.url}${furniturePath(piece.slug)}`,
+      },
+    ],
+  };
+}
+
+export function furnitureServiceJsonLd(piece: FurniturePiece) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: `${piece.name} removal in San Diego`,
+    serviceType: `${piece.name} removal`,
+    description: piece.description,
+    provider: { "@id": `${SITE.url}/#business` },
+    areaServed: { "@type": "City", name: "San Diego" },
+    offers: {
+      "@type": "Offer",
+      price: "69",
+      priceCurrency: "USD",
+      description: `${piece.name} pickup in San Diego from $69 curbside.`,
+    },
+  };
+}
+
+export function furnitureFaqs(piece: FurniturePiece) {
+  return [
+    {
+      q: `How much does ${piece.name.toLowerCase()} removal cost in San Diego?`,
+      a: `${piece.name} pickup starts at $69 curbside. Full service — we come inside, stairs included — starts at $130. Use the estimator on this page for the locked price.`,
+    },
+    {
+      q: `Do you take a ${piece.name.toLowerCase()} the same day?`,
+      a: `Yes. ${piece.haul} Text a photo to ${SITE.textDisplay} or book a window Monday–Saturday, 9am–4pm.`,
     },
   ];
 }

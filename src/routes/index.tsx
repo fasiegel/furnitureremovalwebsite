@@ -14,6 +14,7 @@ import {
   money,
   quote,
 } from "@/lib/site";
+import { furnitureByCategory } from "@/lib/furniture";
 import { faqJsonLd, localBusinessJsonLd, pageMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
@@ -88,6 +89,40 @@ function Home() {
             body="From San Ysidro to La Jolla, inland through Chula Vista, National City, and Mission Valley."
           />
         </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+        <p className="text-xs font-semibold uppercase tracking-widest text-kelp">What we take</p>
+        <h2 className="mt-2 max-w-xl font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+          Forty kinds of furniture. One pickup.
+        </h2>
+        <p className="mt-3 max-w-xl text-sm text-mist">
+          Recliners, sectionals, cribs, china cabinets — each piece has its own page and a posted
+          price.
+        </p>
+        <div className="mt-8 grid gap-3 sm:grid-cols-2">
+          {furnitureByCategory().map((group) => (
+            <a
+              key={group.id}
+              href={`/what-we-remove#${group.id}`}
+              className="rounded-2xl border border-line bg-cream p-5 transition-colors duration-150 hover:bg-white"
+            >
+              <p className="font-display text-lg font-semibold tracking-tight">{group.label}</p>
+              <p className="mt-1 text-sm text-mist">
+                {group.items
+                  .slice(0, 4)
+                  .map((item) => item.name)
+                  .join(", ")}
+                , and more.
+              </p>
+            </a>
+          ))}
+        </div>
+        <p className="mt-6">
+          <Link to="/what-we-remove" className="text-sm font-medium text-kelp hover:underline">
+            See everything we haul
+          </Link>
+        </p>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">

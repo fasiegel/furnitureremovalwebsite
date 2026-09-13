@@ -29,6 +29,12 @@ export function SiteHeader() {
           </span>
         </Link>
         <nav className="flex items-center gap-2">
+          <Link
+            to="/what-we-remove"
+            className="hidden px-3 text-sm font-medium transition-colors duration-150 hover:text-kelp sm:inline"
+          >
+            What we take
+          </Link>
           <GhostLink href={SITE.textHref} className="h-10 px-4 text-sm">
             Text us
           </GhostLink>

@@ -78,6 +78,11 @@ export function SiteFooter() {
                   </Link>
                 </li>
                 <li>
+                  <Link to="/what-we-remove" className="hover:text-cream">
+                    What we take
+                  </Link>
+                </li>
+                <li>
                   <a href={SITE.mattressHref} className="hover:text-cream">
                     Mattress removal
                   </a>
