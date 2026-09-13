@@ -1,4 +1,4 @@
-import { EMPTY_COUNTS, type ItemId } from "./site";
+import { priceForUnits, type ServiceId } from "./site";
 
 export const FURNITURE_CATEGORIES = [
   { id: "seating", label: "Seating", blurb: "Chairs, sofas, and anything you sit on." },
@@ -15,19 +15,26 @@ export type FurniturePiece = {
   category: FurnitureCategoryId;
   description: string;
   haul: string;
-  itemId: ItemId;
-  qty: number;
+  /** Calculator units. 1 = one couch. Change this number to reprice the piece. */
+  units: number;
 };
 
 export const FURNITURE: FurniturePiece[] = [
+  {
+    slug: "sofa",
+    name: "Couch / sofa",
+    category: "seating",
+    description: "A standard living-room couch, typically seating three.",
+    haul: "Couches are the most common pickup in San Diego. Curbside from $69. Full service if it is still inside.",
+    units: 1,
+  },
   {
     slug: "armchair",
     name: "Armchair",
     category: "seating",
     description: "A comfortable single chair with side supports for your arms.",
     haul: "We carry armchairs out of living rooms and dens across San Diego — curbside or full service, stairs included.",
-    itemId: "recliner",
-    qty: 1,
+    units: 1,
   },
   {
     slug: "recliner",
@@ -35,8 +42,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "seating",
     description: "An armchair with a back that tilts back and a footrest that folds out.",
     haul: "Recliners are heavy and awkward. Our two-person crew tips, wraps, and walks them down PB and Hillcrest stairs all week.",
-    itemId: "recliner",
-    qty: 1,
+    units: 1,
   },
   {
     slug: "loveseat",
@@ -44,8 +50,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "seating",
     description: "A small sofa designed to seat two people.",
     haul: "Loveseats fit most San Diego doorways. We take them from apartments and bungalows the same day you book.",
-    itemId: "loveseat",
-    qty: 1,
+    units: 1,
   },
   {
     slug: "sectional-sofa",
@@ -53,8 +58,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "seating",
     description: "A multi-piece couch that can be arranged in various L- or U-shaped configurations.",
     haul: "We split sectionals into pieces, carry them down 90-degree landings, and haul two- and three-piece sets the same run.",
-    itemId: "sectional2",
-    qty: 1,
+    units: 2,
   },
   {
     slug: "rocking-chair",
@@ -62,8 +66,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "seating",
     description: "A chair mounted on curved tracks that lets you rock back and forth.",
     haul: "Rockers go out as one piece when they fit, or we pad the runners and carry them on edge through tight craftsman doors.",
-    itemId: "recliner",
-    qty: 1,
+    units: 1,
   },
   {
     slug: "ottoman",
@@ -71,8 +74,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "seating",
     description: "A low, cushioned seat or footstool with no back or arms.",
     haul: "Ottomans ride along with the sofa. Alone they count as a small piece — we still pick up same day.",
-    itemId: "nightstand",
-    qty: 1,
+    units: 0.5,
   },
   {
     slug: "bar-stool",
@@ -80,8 +82,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "seating",
     description: "A tall, narrow stool designed for use at a bar or counter height.",
     haul: "We stack bar stools and take a set in one stop. Kitchen counters in UTC and Eastlake turn over constantly.",
-    itemId: "diningChair",
-    qty: 1,
+    units: 0.5,
   },
   {
     slug: "chaise-lounge",
@@ -89,8 +90,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "seating",
     description: "A long chair meant for reclining with your legs stretched out.",
     haul: "Chaises are long. We angle them through patio sliders and down Point Loma hillside steps without scraping stucco.",
-    itemId: "couch",
-    qty: 1,
+    units: 1,
   },
   {
     slug: "bench",
@@ -98,8 +98,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "seating",
     description: "A long wooden or upholstered seat for multiple people.",
     haul: "Entry benches, dining benches, and bedroom benches — we take wood or upholstered, indoor or patio.",
-    itemId: "loveseat",
-    qty: 1,
+    units: 1,
   },
   {
     slug: "bean-bag",
@@ -107,8 +106,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "seating",
     description: "A large, soft fabric bag filled with tiny pellets that molds to your body shape.",
     haul: "Bean bags are bulky more than heavy. We bag torn ones so pellets do not hit the stairwell.",
-    itemId: "loveseat",
-    qty: 1,
+    units: 1,
   },
   {
     slug: "wingback-chair",
@@ -116,8 +114,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "seating",
     description: "An armchair with high side panels designed to shield against drafts.",
     haul: "Wingbacks are tall and catch on railings. We wrap the wings and carry them out of Mission Hills and Kensington dens.",
-    itemId: "recliner",
-    qty: 1,
+    units: 1,
   },
   {
     slug: "dining-chair",
@@ -125,8 +122,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "seating",
     description: "A standard chair designed to match a dining room table.",
     haul: "Dining chairs are priced per seat. Four chairs plus the table is a common San Diego dining-room haul.",
-    itemId: "diningChair",
-    qty: 1,
+    units: 0.5,
   },
   {
     slug: "platform-bed",
@@ -134,8 +130,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "beds",
     description: "A low bed frame featuring a solid or slatted base that holds a mattress without needing a box spring.",
     haul: "We disassemble platform frames when we have to, haul the slats, and can take the mattress as a sister service.",
-    itemId: "bedFrame",
-    qty: 1,
+    units: 1,
   },
   {
     slug: "bunk-bed",
@@ -143,8 +138,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "beds",
     description: "Two single beds stacked vertically, one on top of the other.",
     haul: "Bunks come apart. We pull the pins, carry rails and ladders out of kids’ rooms, and take both twins in one trip.",
-    itemId: "bedFrame",
-    qty: 2,
+    units: 2,
   },
   {
     slug: "daybed",
@@ -152,8 +146,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "beds",
     description: "A versatile piece used as a couch during the day and a bed at night.",
     haul: "Daybeds leave guest rooms and offices the same way a sofa does — wrapped, walked, and off the floor that afternoon.",
-    itemId: "bedFrame",
-    qty: 1,
+    units: 1,
   },
   {
     slug: "murphy-bed",
@@ -161,8 +154,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "beds",
     description: "A bed hinged at one end to fold up and store flat inside a wall cabinet.",
     haul: "Murphy units unbolt from the wall. We take the cabinet and the mattress so the next tenant gets a clean room.",
-    itemId: "bedFrame",
-    qty: 2,
+    units: 2,
   },
   {
     slug: "crib",
@@ -170,8 +162,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "beds",
     description: "A small, enclosed bed with high slatted sides for an infant or toddler.",
     haul: "Cribs fold or come apart. We haul them with changing tables and gliders from nurseries across central San Diego.",
-    itemId: "bedFrame",
-    qty: 1,
+    units: 1,
   },
   {
     slug: "futon",
@@ -179,8 +170,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "beds",
     description: "A convertible padded mattress frame that folds between a couch and a bed.",
     haul: "College-area futons are a Tuesday specialty. Frame plus pad, down the stairs, donated if they’re clean.",
-    itemId: "couch",
-    qty: 1,
+    units: 1,
   },
   {
     slug: "bassinet",
@@ -188,8 +178,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "beds",
     description: "A small basket-like bed specifically designed for newborns.",
     haul: "Bassinets are a small piece. They ride with the crib, glider, or whatever else is leaving the nursery.",
-    itemId: "nightstand",
-    qty: 1,
+    units: 0.5,
   },
   {
     slug: "coffee-table",
@@ -197,8 +186,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "tables",
     description: "A low table placed in front of a sofa for drinks and books.",
     haul: "Glass, wood, or storage ottoman tables — we pad glass tops and take them with the living-room set.",
-    itemId: "coffeeTable",
-    qty: 1,
+    units: 1,
   },
   {
     slug: "dining-table",
@@ -206,8 +194,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "tables",
     description: "A large table used for eating meals.",
     haul: "Leaves come out, bases split when they can. We walk dining tables out of North Park bungalows without hitting the crown molding.",
-    itemId: "diningTable",
-    qty: 1,
+    units: 1,
   },
   {
     slug: "nightstand",
@@ -215,8 +202,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "tables",
     description: "A small bedside table used for lamps and nighttime items.",
     haul: "Nightstands usually go with the dresser and bed frame. Alone they count as a small piece.",
-    itemId: "nightstand",
-    qty: 1,
+    units: 0.5,
   },
   {
     slug: "writing-desk",
@@ -224,8 +210,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "tables",
     description: "A flat-surface table designed for reading, writing, or using a laptop.",
     haul: "Desks from home offices and UTC apartments — we empty the drawers, unbolt the legs if needed, and carry them out.",
-    itemId: "desk",
-    qty: 1,
+    units: 1,
   },
   {
     slug: "end-table",
@@ -233,8 +218,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "tables",
     description: "A small table placed beside the end of a sofa or armchair.",
     haul: "End tables ride with the sofa. We take pairs, nested sets, and the one with the broken drawer.",
-    itemId: "nightstand",
-    qty: 1,
+    units: 0.5,
   },
   {
     slug: "console-table",
@@ -242,8 +226,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "tables",
     description: "A long, narrow table typically placed against an entryway or living room wall.",
     haul: "Entry consoles are long and skinny. We angle them down walk-up stairs and out of Little Italy lofts.",
-    itemId: "tvStand",
-    qty: 1,
+    units: 1,
   },
   {
     slug: "vanity-table",
@@ -251,8 +234,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "tables",
     description: "A dressing table with a mirror and drawers used for makeup and grooming.",
     haul: "We wrap the mirror, empty the drawers, and take vanities from bedrooms and bathrooms without leaving glass behind.",
-    itemId: "dresser",
-    qty: 1,
+    units: 1,
   },
   {
     slug: "drop-leaf-table",
@@ -260,8 +242,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "tables",
     description: "A table with hinged sections on the sides that fold down to save space.",
     haul: "Leaves fold, the footprint shrinks, and we walk it out like any other dining table.",
-    itemId: "diningTable",
-    qty: 1,
+    units: 1,
   },
   {
     slug: "dresser",
@@ -269,8 +250,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "storage",
     description: "A low chest of drawers used primarily for storing folded clothing.",
     haul: "Dressers are a daily pickup. Drawers stay in if they’re solid; we empty them if they’re not. Same-day in every ZIP we list.",
-    itemId: "dresser",
-    qty: 1,
+    units: 1,
   },
   {
     slug: "bookshelf",
@@ -278,8 +258,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "storage",
     description: "A piece of open shelving dedicated to holding books.",
     haul: "Empty the shelves — we take the case. Tall IKEA units come apart. Built-looking cases still leave if they’re not bolted in.",
-    itemId: "bookshelf",
-    qty: 1,
+    units: 1,
   },
   {
     slug: "wardrobe",
@@ -287,8 +266,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "storage",
     description: "A tall cabinet with hanging space and doors for clothes.",
     haul: "Wardrobes count as two pieces when they’re full-height. We walk them out of rooms with no closet, doors off if needed.",
-    itemId: "dresser",
-    qty: 2,
+    units: 2,
   },
   {
     slug: "sideboard",
@@ -296,8 +274,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "storage",
     description: "A long low cabinet placed in a dining area to store dinnerware and serve food.",
     haul: "Sideboards are long and heavy. Two people, pads on the corners, out through the dining room.",
-    itemId: "dresser",
-    qty: 1,
+    units: 1,
   },
   {
     slug: "media-console",
@@ -305,8 +282,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "storage",
     description: "A low entertainment cabinet designed to hold a television and media components.",
     haul: "Unplug the TV — we can take the console, the stand, and the set on the same run as a sister add-on.",
-    itemId: "tvStand",
-    qty: 1,
+    units: 1,
   },
   {
     slug: "china-cabinet",
@@ -314,8 +290,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "storage",
     description: "A glass-fronted display case used to store and show off fine dishware.",
     haul: "China cabinets count as two pieces. We empty glass, wrap doors, and take hutch plus base together.",
-    itemId: "dresser",
-    qty: 2,
+    units: 2,
   },
   {
     slug: "armoire",
@@ -323,8 +298,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "storage",
     description: "An ornate freestanding wardrobe with doors, often housing a closet rod or TV.",
     haul: "Armoires are tall. Doors come off, the carcass walks out on edge, and we treat them as a two-piece haul.",
-    itemId: "dresser",
-    qty: 2,
+    units: 2,
   },
   {
     slug: "credenza",
@@ -332,8 +306,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "storage",
     description: "A sleek, low cabinet with sliding doors or drawers.",
     haul: "Office and dining credenzas — we clear the cables, pad the sliding doors, and take them from condos and small offices.",
-    itemId: "dresser",
-    qty: 1,
+    units: 1,
   },
   {
     slug: "hutch",
@@ -341,8 +314,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "storage",
     description: "A set of shelves or cabinets placed on top of a lower sideboard or desk.",
     haul: "The hutch lifts off the base. We haul both as two pieces so nothing racks or cracks the glass.",
-    itemId: "dresser",
-    qty: 2,
+    units: 2,
   },
   {
     slug: "shoe-cabinet",
@@ -350,8 +322,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "storage",
     description: "A specialized slim cabinet with tilt-out slots to organize footwear.",
     haul: "Slim entry cabinets leave with the rest of the move-out pile. Easy carry, same-day window.",
-    itemId: "dresser",
-    qty: 1,
+    units: 1,
   },
   {
     slug: "filing-cabinet",
@@ -359,8 +330,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "storage",
     description: "A metal or wooden office cabinet with sliding drawers for hanging folders.",
     haul: "Empty the files. Metal two- and four-drawer cabinets come out of Kearny Mesa offices and spare bedrooms the same afternoon.",
-    itemId: "desk",
-    qty: 1,
+    units: 1,
   },
   {
     slug: "storage-chest",
@@ -368,8 +338,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "storage",
     description: "A heavy box with a hinged lid used to store blankets, toys, or keepsakes.",
     haul: "Chests and blanket boxes go with the bedroom set. We lift, we don’t drag — floors stay intact.",
-    itemId: "dresser",
-    qty: 1,
+    units: 1,
   },
   {
     slug: "pantry-cabinet",
@@ -377,8 +346,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "storage",
     description: "A tall kitchen storage unit with shelves dedicated to food and dry goods.",
     haul: "Freestanding pantry cabinets, not built-ins. We empty shelves, walk them out of kitchens, and treat full-height units as two pieces.",
-    itemId: "dresser",
-    qty: 2,
+    units: 2,
   },
 ];
 
@@ -390,8 +358,26 @@ export function furniturePath(slug: string) {
   return `/furniture-removal/${slug}`;
 }
 
-export function furnitureCounts(piece: FurniturePiece) {
-  return { ...EMPTY_COUNTS, [piece.itemId]: piece.qty };
+export function emptyFurnitureCounts(): Record<string, number> {
+  return Object.fromEntries(FURNITURE.map((p) => [p.slug, 0]));
+}
+
+export function billedFurnitureUnits(counts: Record<string, number>): number {
+  const raw = FURNITURE.reduce((sum, piece) => sum + piece.units * (counts[piece.slug] ?? 0), 0);
+  if (raw <= 0) return 0;
+  return Math.max(1, Math.ceil(raw));
+}
+
+export function quoteFurniture(counts: Record<string, number>, service: ServiceId) {
+  const units = billedFurnitureUnits(counts);
+  const total = priceForUnits(units, service);
+  const curb = priceForUnits(units, "curbside");
+  const full = priceForUnits(units, "full");
+  const billed = FURNITURE.filter((piece) => (counts[piece.slug] ?? 0) > 0).map((piece) => ({
+    ...piece,
+    qty: counts[piece.slug] ?? 0,
+  }));
+  return { units, total, curb, full, billed, empty: units === 0 };
 }
 
 export function relatedFurniture(piece: FurniturePiece, limit = 8) {

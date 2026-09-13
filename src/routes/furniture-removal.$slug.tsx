@@ -3,12 +3,11 @@ import { GhostLink } from "@/components/buttons";
 import { JsonLd } from "@/components/json-ld";
 import {
   FURNITURE_CATEGORIES,
-  furnitureCounts,
   furniturePath,
   getFurniture,
   relatedFurniture,
 } from "@/lib/furniture";
-import { SITE, money, photoForPlace, priceForUnits, quote } from "@/lib/site";
+import { SITE, money, photoForPlace, priceForUnits } from "@/lib/site";
 import {
   faqJsonLd,
   furnitureBreadcrumbJsonLd,
@@ -42,8 +41,9 @@ function FurnitureTypePage() {
   const faqs = furnitureFaqs(piece);
   const related = relatedFurniture(piece);
   const category = FURNITURE_CATEGORIES.find((c) => c.id === piece.category);
-  const priced = quote(furnitureCounts(piece), "curbside");
-  const full = priceForUnits(priced.units, "full");
+  const billed = Math.max(1, Math.ceil(piece.units));
+  const priced = { curb: priceForUnits(billed, "curbside"), units: billed };
+  const full = priceForUnits(billed, "full");
 
   return (
     <main>

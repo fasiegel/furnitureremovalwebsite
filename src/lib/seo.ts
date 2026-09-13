@@ -269,7 +269,7 @@ export function furnitureFaqs(piece: FurniturePiece) {
   return [
     {
       q: `How much does ${piece.name.toLowerCase()} removal cost in San Diego?`,
-      a: `${piece.name} pickup starts at $69 curbside. Full service — we come inside, stairs included — starts at $130. Use the estimator on this page for the locked price.`,
+      a: `${piece.name} pickup starts at $69 curbside. Full service — we come inside, stairs included — starts at $130. Use the calculator on the home page for the locked price.`,
     },
     {
       q: `Do you take a ${piece.name.toLowerCase()} the same day?`,
