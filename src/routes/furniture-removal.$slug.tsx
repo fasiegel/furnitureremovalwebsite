@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { BookLink, GhostLink } from "@/components/buttons";
+import { GhostLink } from "@/components/buttons";
 import { Estimator } from "@/components/estimator";
 import { JsonLd } from "@/components/json-ld";
 import {
@@ -84,9 +84,6 @@ function FurnitureTypePage() {
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
           <GhostLink href={SITE.textHref}>Text a photo</GhostLink>
-          <BookLink href={SITE.bookHref} rel="nofollow noopener noreferrer">
-            Book now
-          </BookLink>
         </div>
       </section>
 
@@ -123,7 +120,7 @@ function FurnitureTypePage() {
             height={photo.h}
           />
         </div>
-        <Estimator key={piece.slug} initialCounts={furnitureCounts(piece)} />
+        <Estimator key={piece.slug} initialCounts={furnitureCounts(piece)} showBook={false} />
       </section>
 
       <section className="mx-auto max-w-6xl px-4 pb-16 sm:px-6">

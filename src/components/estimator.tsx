@@ -14,8 +14,10 @@ import { BookLink } from "./buttons";
 
 export function Estimator({
   initialCounts = DEFAULT_COUNTS,
+  showBook = true,
 }: {
   initialCounts?: Record<ItemId, number>;
+  showBook?: boolean;
 }) {
   const [counts, setCounts] = useState<Record<ItemId, number>>(initialCounts);
   const [service, setService] = useState<ServiceId>("full");
@@ -118,13 +120,15 @@ export function Estimator({
       </div>
 
       <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
-        <BookLink
-          href={SITE.bookHref}
-          rel="nofollow noopener noreferrer"
-          className="w-full sm:w-auto"
-        >
-          Book now
-        </BookLink>
+        {showBook ? (
+          <BookLink
+            href={SITE.bookHref}
+            rel="nofollow noopener noreferrer"
+            className="w-full sm:w-auto"
+          >
+            Book now
+          </BookLink>
+        ) : null}
         <p className="text-xs text-mist">
           Cancel anytime.{" "}
           <a href={SITE.mattressHref} className="underline decoration-line underline-offset-2 hover:text-kelp">
