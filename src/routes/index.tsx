@@ -40,7 +40,7 @@ function Home() {
             Service Central San Diego · {SITE.hours}
           </p>
           <h1 className="mt-3 font-display text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
-            San Diego furniture removal — same-day pickup from $69.
+            Low price furniture removal in San Diego.
           </h1>
           <p className="mt-4 max-w-lg text-base leading-relaxed text-mist sm:text-lg">
             We haul couches, dressers, and dining sets from homes, walk-ups, and HOAs across

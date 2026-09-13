@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { SITE } from "@/lib/site";
-import { BookLink, GhostLink } from "./buttons";
+import { GhostLink } from "./buttons";
 import { BrandMark } from "./mark";
 import { Stars } from "./stars";
 
@@ -29,19 +29,9 @@ export function SiteHeader() {
           </span>
         </Link>
         <nav className="flex items-center gap-2">
-          <GhostLink
-            href={SITE.textHref}
-            className="hidden h-10 px-4 text-sm sm:inline-flex"
-          >
+          <GhostLink href={SITE.textHref} className="h-10 px-4 text-sm">
             Text us
           </GhostLink>
-          <BookLink
-            href={SITE.bookHref}
-            rel="nofollow noopener noreferrer"
-            className="h-10 px-4 text-sm"
-          >
-            Book now
-          </BookLink>
         </nav>
       </div>
     </header>
