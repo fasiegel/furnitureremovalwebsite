@@ -134,12 +134,7 @@ export function Estimator({ showBook = true }: { showBook?: boolean }) {
             Book now
           </BookLink>
         ) : null}
-        <p className="text-xs text-mist">
-          Cancel anytime.{" "}
-          <a href={SITE.mattressHref} className="underline decoration-line underline-offset-2 hover:text-kelp">
-            Add a mattress
-          </a>
-        </p>
+        <p className="text-xs text-mist">Cancel anytime.</p>
       </div>
     </div>
   );
