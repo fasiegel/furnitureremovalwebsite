@@ -34,7 +34,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "seating",
     description: "A comfortable single chair with side supports for your arms.",
     haul: "We carry armchairs out of living rooms and dens across San Diego — curbside or full service, stairs included.",
-    units: 1,
+    units: 0.5,
   },
   {
     slug: "recliner",
@@ -42,7 +42,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "seating",
     description: "An armchair with a back that tilts back and a footrest that folds out.",
     haul: "Recliners are heavy and awkward. Our two-person crew tips, wraps, and walks them down PB and Hillcrest stairs all week.",
-    units: 1,
+    units: 0.5,
   },
   {
     slug: "loveseat",
@@ -54,11 +54,19 @@ export const FURNITURE: FurniturePiece[] = [
   },
   {
     slug: "sectional-sofa",
-    name: "Sectional sofa",
+    name: "Two-piece sectional",
     category: "seating",
-    description: "A multi-piece couch that can be arranged in various L- or U-shaped configurations.",
-    haul: "We split sectionals into pieces, carry them down 90-degree landings, and haul two- and three-piece sets the same run.",
+    description: "A two-piece couch that can be arranged in an L-shape — typically a sofa plus a chaise.",
+    haul: "We split the two pieces, carry them down 90-degree landings, and take both on the same run.",
     units: 2,
+  },
+  {
+    slug: "three-piece-sectional",
+    name: "Three-piece sectional",
+    category: "seating",
+    description: "A three-piece couch in an L- or U-shape — typically two sofas plus a corner or chaise.",
+    haul: "Three-piece sectionals come apart. We walk each section down the stairs and load them together.",
+    units: 3,
   },
   {
     slug: "rocking-chair",
@@ -66,7 +74,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "seating",
     description: "A chair mounted on curved tracks that lets you rock back and forth.",
     haul: "Rockers go out as one piece when they fit, or we pad the runners and carry them on edge through tight craftsman doors.",
-    units: 1,
+    units: 0.5,
   },
   {
     slug: "ottoman",
@@ -82,7 +90,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "seating",
     description: "A tall, narrow stool designed for use at a bar or counter height.",
     haul: "We stack bar stools and take a set in one stop. Kitchen counters in UTC and Eastlake turn over constantly.",
-    units: 0.5,
+    units: 0.25,
   },
   {
     slug: "chaise-lounge",
@@ -98,7 +106,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "seating",
     description: "A long wooden or upholstered seat for multiple people.",
     haul: "Entry benches, dining benches, and bedroom benches — we take wood or upholstered, indoor or patio.",
-    units: 1,
+    units: 0.5,
   },
   {
     slug: "bean-bag",
@@ -106,7 +114,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "seating",
     description: "A large, soft fabric bag filled with tiny pellets that molds to your body shape.",
     haul: "Bean bags are bulky more than heavy. We bag torn ones so pellets do not hit the stairwell.",
-    units: 1,
+    units: 0.5,
   },
   {
     slug: "wingback-chair",
@@ -114,7 +122,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "seating",
     description: "An armchair with high side panels designed to shield against drafts.",
     haul: "Wingbacks are tall and catch on railings. We wrap the wings and carry them out of Mission Hills and Kensington dens.",
-    units: 1,
+    units: 0.5,
   },
   {
     slug: "dining-chair",
@@ -122,7 +130,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "seating",
     description: "A standard chair designed to match a dining room table.",
     haul: "Dining chairs are priced per seat. Four chairs plus the table is a common San Diego dining-room haul.",
-    units: 0.5,
+    units: 0.25,
   },
   {
     slug: "platform-bed",
@@ -130,7 +138,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "beds",
     description: "A low bed frame featuring a solid or slatted base that holds a mattress without needing a box spring.",
     haul: "We disassemble platform frames when we have to, haul the slats, and can take the mattress as a sister service.",
-    units: 1,
+    units: 2,
   },
   {
     slug: "bunk-bed",
@@ -162,7 +170,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "beds",
     description: "A small, enclosed bed with high slatted sides for an infant or toddler.",
     haul: "Cribs fold or come apart. We haul them with changing tables and gliders from nurseries across central San Diego.",
-    units: 1,
+    units: 0.5,
   },
   {
     slug: "futon",
