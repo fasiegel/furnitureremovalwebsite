@@ -110,7 +110,7 @@ function FurnitureTypePage() {
           How we haul a {piece.name.toLowerCase()}.
         </h2>
         <p className="mt-3 max-w-2xl text-sm leading-relaxed text-mist">{piece.haul}</p>
-        <ItemGraphics piece={piece} curb={priced.curb} />
+        <ItemGraphics piece={piece} curb={priced.curb} full={full} />
       </section>
 
       <section className="mx-auto max-w-6xl px-4 pb-16 sm:px-6">

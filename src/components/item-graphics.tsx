@@ -8,13 +8,15 @@ export function itemPhotoSrc(slug: string, variant: "a" | "b") {
 export function ItemGraphics({
   piece,
   curb,
+  full,
 }: {
   piece: FurniturePiece;
   curb: number;
+  full: number;
 }) {
   const a = itemPhotoSrc(piece.slug, "a");
   const b = itemPhotoSrc(piece.slug, "b");
-  const unitLabel = piece.units === 1 ? "1 unit" : `${piece.units} units`;
+  const item = piece.name.toLowerCase();
 
   return (
     <div className="mt-10 grid gap-4 sm:grid-cols-2 sm:gap-6">
@@ -26,17 +28,12 @@ export function ItemGraphics({
           width={1600}
           height={1200}
         />
-        <figcaption className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 bg-gradient-to-t from-ink/85 to-transparent px-4 pb-4 pt-16 text-kelp-fg">
-          <span>
-            <span className="block text-xs font-semibold uppercase tracking-widest text-kelp-fg/70">
-              Pickup
-            </span>
-            <span className="mt-0.5 block font-display text-xl font-semibold tracking-tight">
-              {piece.name}
-            </span>
+        <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/90 to-transparent px-4 pb-4 pt-16 text-kelp-fg">
+          <span className="block text-xs font-semibold uppercase tracking-widest text-kelp-fg/70">
+            We pick up {item}
           </span>
-          <span className="rounded-full bg-kelp px-3 py-1 text-xs font-semibold">
-            {money(curb)} curb
+          <span className="mt-1 block font-display text-lg font-semibold tracking-tight">
+            {money(curb)} curbside · {money(full)} full service
           </span>
         </figcaption>
       </figure>
@@ -54,13 +51,12 @@ export function ItemGraphics({
             className="pointer-events-none absolute inset-0 bg-kelp/25 mix-blend-multiply"
             aria-hidden="true"
           />
-          <span className="absolute left-3 top-3 rounded-full border border-kelp-fg/30 bg-kelp px-3 py-1 text-xs font-semibold uppercase tracking-widest text-kelp-fg">
-            We take this
-          </span>
         </div>
-        <figcaption className="flex items-center justify-between gap-3 px-4 py-3">
-          <span className="text-sm font-medium">{piece.name} · San Diego</span>
-          <span className="text-xs font-semibold uppercase tracking-widest text-mist">{unitLabel}</span>
+        <figcaption className="px-4 py-3">
+          <span className="block text-sm font-medium">We pick up {item}</span>
+          <span className="mt-0.5 block text-xs font-semibold uppercase tracking-widest text-mist">
+            {money(curb)} curbside · {money(full)} full service
+          </span>
         </figcaption>
       </figure>
     </div>
