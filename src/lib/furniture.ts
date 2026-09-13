@@ -194,7 +194,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "tables",
     description: "A low table placed in front of a sofa for drinks and books.",
     haul: "Glass, wood, or storage ottoman tables — we pad glass tops and take them with the living-room set.",
-    units: 1,
+    units: 0.5,
   },
   {
     slug: "dining-table",
@@ -330,7 +330,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "storage",
     description: "A specialized slim cabinet with tilt-out slots to organize footwear.",
     haul: "Slim entry cabinets leave with the rest of the move-out pile. Easy carry, same-day window.",
-    units: 1,
+    units: 0.5,
   },
   {
     slug: "filing-cabinet",
@@ -346,7 +346,7 @@ export const FURNITURE: FurniturePiece[] = [
     category: "storage",
     description: "A heavy box with a hinged lid used to store blankets, toys, or keepsakes.",
     haul: "Chests and blanket boxes go with the bedroom set. We lift, we don’t drag — floors stay intact.",
-    units: 1,
+    units: 0.5,
   },
   {
     slug: "pantry-cabinet",
