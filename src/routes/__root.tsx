@@ -5,6 +5,7 @@ import { NotFoundPage } from "@/components/not-found";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { SITE } from "@/lib/site";
+import { GEO, OG_IMAGE } from "@/lib/seo";
 import appCss from "../styles.css?url";
 
 export const Route = createRootRoute({
@@ -12,13 +13,25 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: `${SITE.name} — Same-day pickup from $69` },
+      { title: "Furniture Removal San Diego | Same-Day Pickup from $69" },
       {
         name: "description",
         content:
-          "Same-day furniture pickup and haul-away across central San Diego. Couches, dressers, dining sets from $69 curbside. Donated or recycled locally.",
+          "Same-day furniture removal in San Diego. Couches, dressers, and dining sets from $69 curbside. Donated or recycled locally. Licensed, insured, veteran owned.",
       },
       { name: "theme-color", content: "#215853" },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
+      { name: "author", content: SITE.name },
+      { name: "geo.region", content: GEO.region },
+      { name: "geo.placename", content: GEO.placename },
+      { name: "geo.position", content: `${GEO.lat};${GEO.lng}` },
+      { name: "ICBM", content: `${GEO.lat}, ${GEO.lng}` },
+      { property: "og:type", content: "website" },
+      { property: "og:locale", content: "en_US" },
+      { property: "og:site_name", content: SITE.name },
+      { property: "og:image", content: OG_IMAGE },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
     links: [
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
@@ -31,7 +44,6 @@ export const Route = createRootRoute({
       { rel: "stylesheet", href: appCss },
       { rel: "manifest", href: "/__grok/manifest.webmanifest" },
       { rel: "apple-touch-icon", href: "/__grok/icon-180.png" },
-      { rel: "canonical", href: `${SITE.url}/` },
     ],
   }),
   notFoundComponent: () => (

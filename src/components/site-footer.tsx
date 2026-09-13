@@ -49,8 +49,20 @@ export function SiteFooter() {
                 <p className="font-display text-sm font-semibold">{SITE.name}</p>
               </div>
               <p className="mt-3 text-sm leading-relaxed text-kelp-fg/70">
-                We haul couches, dressers, and dining sets, then donate what we can and recycle the rest.
+                Same-day furniture removal in San Diego. Couches, dressers, and dining sets — donated
+                or recycled locally.
               </p>
+              <address className="mt-4 not-italic text-sm leading-relaxed text-kelp-fg/80">
+                {SITE.name}
+                <br />
+                {SITE.address}
+                <br />
+                <a href={SITE.textHref} className="hover:text-cream">
+                  {SITE.textDisplay}
+                </a>
+                <br />
+                {SITE.hours}
+              </address>
             </div>
             <div>
               <p className="text-xs font-semibold uppercase tracking-widest text-kelp-fg/50">Visit</p>
@@ -86,7 +98,11 @@ export function SiteFooter() {
                   </a>
                 </li>
                 <li>{SITE.hours}</li>
-                <li>San Diego County, CA</li>
+                <li>
+                  <a href={SITE.mapsHref} className="hover:text-cream">
+                    {SITE.address}
+                  </a>
+                </li>
               </ul>
             </div>
           </div>

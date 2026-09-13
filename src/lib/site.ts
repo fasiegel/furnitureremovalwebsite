@@ -10,6 +10,8 @@ export const SITE = {
   textDisplay: "(619) 245-9957",
   phoneTel: "+16192459957",
   address: "1455 Kettner Blvd #1502, San Diego, CA 92101",
+  mapsHref:
+    "https://www.google.com/maps/search/?api=1&query=1455%20Kettner%20Blvd%201502%20San%20Diego%20CA%2092101",
   mattressHref: "https://www.mattressremovalsandiego.com/",
   parent: {
     name: "Fred's Junk Removal",
@@ -69,6 +71,93 @@ export function getPlace(slug: string): Place | undefined {
 
 export function placePath(slug: string) {
   return `/furniture-removal-in/${slug}`;
+}
+
+export function nearbyLinks(place: Place) {
+  return place.nearby.map((label) => {
+    const match = PLACES.find((p) => p.name.toLowerCase() === label.toLowerCase());
+    return { label, slug: match?.slug };
+  });
+}
+
+export const PLACE_BLURBS: Record<string, string> = {
+  "allied-gardens":
+    "Allied Gardens is mostly single-story ranch homes and quiet cul-de-sacs off Waring Road. We pull couches from garages, dens, and the occasional ADU without blocking the street for long.",
+  bonita:
+    "Bonita jobs are a mix of gated ranches and Sweetwater-adjacent houses with long driveways. We handle HOA gates and the extra carry from a back patio.",
+  "chula-vista":
+    "Chula Vista is condos in Eastlake, ranch homes near Castle Park, and walk-ups off Broadway. We run the 805 and 54 all day — same-day couch pickup is routine here.",
+  "city-heights":
+    "City Heights walk-ups, courtyard apartments, and tight street parking are the usual setup. We know Cherokee Point and Fairmount — two-person crews, no scuffed plaster.",
+  "clairemont-mesa":
+    "Clairemont Mesa is canyon-edge ranchers, two-car garages, and a lot of recliners that have lived there since the ’90s. Easy street access off Clairemont Drive and Balboa.",
+  "college-grove":
+    "College Grove and the 92115 college-area rentals turn over constantly. Dressers, desks, and thrift-store sofas — we clear units between tenants the same afternoon.",
+  coronado:
+    "Coronado pickups are condos, Cays townhomes, and the odd hotel-adjacent unit. Bridge traffic is built into the window. We keep the load small and the curb clean.",
+  "del-cerro":
+    "Del Cerro sits on the hill above San Carlos — stairs, split-levels, and lake-view dens. Full service covers the carry down to the street.",
+  downtown:
+    "Downtown San Diego means high-rises, loading docks, and HOA rules. We book the freight elevator, pad the corners, and get a sofa out of East Village or Little Italy without a scene.",
+  eastlake:
+    "Eastlake is planned communities, two-story stuccos, and HOA dumpster rules that do not love a sectional. We take it from the garage so you skip the weekend wait.",
+  encanto:
+    "Encanto and Valencia Park are houses with long side yards and the occasional alley pickup. We keep the truck on the street and the furniture off the sidewalk fast.",
+  "golden-hill":
+    "Golden Hill Victorians and 1920s walk-ups have narrow stairs and 90-degree landings. This is two-person work. We have done this block for years.",
+  hillcrest:
+    "Hillcrest is vintage apartments, medical-office overflow, and University Avenue walk-ups. Couches, exam-room leftovers, and dining sets — we come inside.",
+  "imperial-beach":
+    "Imperial Beach jobs are beach cottages, damp patio sets, and Seacoast rentals turning over. Salt air wrecks foam — we recycle what donation partners will not take.",
+  "kearny-mesa":
+    "Kearny Mesa is offices, industrial parks, and apartments off Convoy. Desks, task chairs, and break-room sofas. We can do a small office in one stop.",
+  kensington:
+    "Kensington bungalows and Adams Avenue storefronts have tight curb space. We stage, load, and leave before the next street sweeper.",
+  "la-jolla":
+    "La Jolla is condos in The Village, Shores rentals, and HOAs that want the truck in and out. We pad marble, use freight elevators, and keep the driveway clear.",
+  "linda-vista":
+    "Linda Vista covers USD-area rentals, canyon lots, and Fashion Valley-adjacent condos. Stairs are common. Full service is the usual ask.",
+  "logan-heights":
+    "Logan Heights and Barrio Logan mix houses, new infill, and alley access. We keep the load legal and the curb clean — no furniture left overnight.",
+  "mission-beach":
+    "Mission Beach is walk-streets, sand, and sofas that do not belong on a third-floor deck. We carry through the boardwalk side when the alley is blocked.",
+  "mission-hills":
+    "Mission Hills is hillside craftsman homes and Presidio-area condos. Expect stairs and a long carry from the living room to Kettner-facing streets.",
+  "mission-valley":
+    "Mission Valley is apartment towers, Civita townhomes, and hotel castoffs. Loading docks and garage stalls — we have the building playbook.",
+  "national-city":
+    "National City jobs are houses near the harbor, Plaza Bonita-area apartments, and small offices. Same-day windows along the 5 and 54.",
+  "north-park":
+    "North Park bungalows, 30th Street walk-ups, and courtyard buildings with a 90-degree landing. We take sectionals down stairs all week. This is home turf.",
+  "ocean-beach":
+    "Ocean Beach cottages, Nimitz-area rentals, and Sunset Cliffs houses with steep drives. Sandy patio furniture and old sofas — we haul both.",
+  "old-town":
+    "Old Town is condos above storefronts, tight Historic District streets, and Presidio-adjacent units. We time the window around traffic on Taylor.",
+  "otay-mesa":
+    "Otay Mesa and Ocean View Hills are new tract homes, warehouses, and border-adjacent offices. Big sofas, cheap desks, long driveways.",
+  "pacific-beach":
+    "Pacific Beach walk-ups off Garnet, Crown Point condos, and alley pickups behind Kate Sessions. Three flights of stairs is a normal Tuesday.",
+  "point-loma":
+    "Point Loma covers Liberty Station lofts, Roseville cottages, and hillside houses above Shelter Island. HOA gates and Navy-adjacent hours are fine.",
+  "san-ysidro":
+    "San Ysidro is border-village apartments, Nestor houses, and small shops clearing a back room. We run south county all day — same-day is the default.",
+  "serra-mesa":
+    "Serra Mesa ranchers, Murphy Canyon rentals, and Aero Drive offices. Easy street parking and a lot of garage-stored sofas.",
+  "south-park":
+    "South Park craftsman homes and Grape Street walk-ups share Golden Hill’s stair problem. We pad the rails and take the couch in two pieces if we have to.",
+  talmadge:
+    "Talmadge is 1940s houses, El Cerrito edges, and quiet streets off Monroe. Dressers and dining sets from estate clear-outs are common.",
+  "university-city":
+    "University City and UTC condos turn over with the school year. Desks, IKEA bookshelves, and one too many futons. We do elevators all afternoon.",
+  "university-heights":
+    "University Heights is Park Boulevard walk-ups, Normal Heights edges, and courtyard buildings. Tight stairs, street parking, two-person crews.",
+};
+
+export function placeBlurb(place: Place) {
+  return (
+    PLACE_BLURBS[place.slug] ??
+    `We pick up couches, dressers, and dining sets in ${place.name} (ZIP ${place.zip}) the same day you book.`
+  );
 }
 
 export type ItemId =
@@ -212,6 +301,10 @@ export const EXAMPLE_JOBS: {
 
 export const FAQS = [
   {
+    q: "How much does furniture removal cost in San Diego?",
+    a: "Posted prices start at $69 curbside for a single couch. Full service — we come inside, stairs included — starts at $130. A two-piece sectional is $119 at the curb, $180 carried out. The estimator on this page is the price we charge.",
+  },
+  {
     q: "Is furniture removal really free in San Diego?",
     a: "City bulk pickup has rules, wait times, and size limits — and you still have to drag it to the curb on the right morning. We charge because we come to you, carry it out, and take it the same day.",
   },
@@ -230,6 +323,10 @@ export const FAQS = [
   {
     q: "Will you donate my furniture?",
     a: "If it’s clean and usable, we route it to donation partners. Broken pieces get recycled for parts and scrap. We don’t leave sofas in alleys or canyon pull-outs.",
+  },
+  {
+    q: "Which San Diego neighborhoods do you serve?",
+    a: "Central San Diego from San Ysidro to La Jolla, plus Chula Vista, National City, Coronado, Imperial Beach, and the inland neighborhoods listed on this site — North Park, Hillcrest, Pacific Beach, Mission Valley, and more. If you can see a page for your ZIP, we pick up there.",
   },
   {
     q: "How do I pay?",

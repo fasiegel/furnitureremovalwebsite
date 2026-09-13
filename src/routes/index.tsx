@@ -5,6 +5,7 @@ import { BookLink } from "@/components/buttons";
 import { Estimator } from "@/components/estimator";
 import { FaqList } from "@/components/faq";
 import { JobGallery } from "@/components/job-gallery";
+import { JsonLd } from "@/components/json-ld";
 import {
   EXAMPLE_JOBS,
   PLACES,
@@ -13,48 +14,25 @@ import {
   money,
   quote,
 } from "@/lib/site";
+import { faqJsonLd, localBusinessJsonLd, pageMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
   component: Home,
-  head: () => ({
-    meta: [
-      { title: `${SITE.name} — Same-day pickup from $69` },
-      {
-        name: "description",
-        content:
-          "Same-day furniture pickup and haul-away across central San Diego. Couches, dressers, dining sets from $69 curbside. Donated or recycled locally.",
-      },
-    ],
-    links: [{ rel: "canonical", href: `${SITE.url}/` }],
-  }),
+  head: () =>
+    pageMeta({
+      title: "Furniture Removal San Diego | Same-Day Pickup from $69",
+      description:
+        "Same-day furniture removal in San Diego. Couch, sectional, dresser, and dining-set pickup from $69 curbside. Donated or recycled locally. Licensed & insured.",
+      path: "/",
+      image: `${SITE.url}/images/sofa-cream.jpg`,
+    }),
 });
 
 function Home() {
   return (
     <main>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            name: SITE.name,
-            url: SITE.url,
-            telephone: SITE.phoneTel,
-            address: {
-              "@type": "PostalAddress",
-              streetAddress: "1455 Kettner Blvd #1502",
-              addressLocality: "San Diego",
-              addressRegion: "CA",
-              postalCode: "92101",
-              addressCountry: "US",
-            },
-            openingHours: "Mo-Sa 09:00-16:00",
-            priceRange: "$69+",
-            parentOrganization: SITE.parent.name,
-          }),
-        }}
-      />
+      <JsonLd data={localBusinessJsonLd()} />
+      <JsonLd data={faqJsonLd()} />
 
       <section className="mx-auto grid max-w-6xl gap-10 px-4 py-10 sm:px-6 sm:py-16 lg:grid-cols-2 lg:items-start">
         <div>
@@ -62,7 +40,7 @@ function Home() {
             Service Central San Diego · {SITE.hours}
           </p>
           <h1 className="mt-3 font-display text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
-            Your old furniture, off the floor by tonight.
+            San Diego furniture removal — same-day pickup from $69.
           </h1>
           <p className="mt-4 max-w-lg text-base leading-relaxed text-mist sm:text-lg">
             We haul couches, dressers, and dining sets from homes, walk-ups, and HOAs across
@@ -83,7 +61,7 @@ function Home() {
           </ul>
           <img
             src="/images/sofa-cream.jpg"
-            alt="Cream tufted sofa with navy cushions staged at the curb for pickup"
+            alt="San Diego furniture removal — cream sofa staged at the curb for same-day pickup"
             className="photo mt-8 aspect-4/3 w-full rounded-2xl object-cover object-top"
             width={1600}
             height={1200}
@@ -216,11 +194,12 @@ function Home() {
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
           <p className="text-xs font-semibold uppercase tracking-widest text-kelp">Service area</p>
           <h2 className="mt-2 max-w-2xl font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-            San Diego’s furniture removal service.
+            Furniture removal near you in San Diego.
           </h2>
           <p className="mt-3 max-w-xl text-sm leading-relaxed text-mist">
-            From San Ysidro to La Jolla, and inland through Chula Vista, National City, and Mission
-            Valley. Search your neighborhood.
+            Couch pickup, sofa haul-away, and full-service carry-out from San Ysidro to La Jolla,
+            inland through Chula Vista, National City, and Mission Valley. Open a neighborhood page
+            for your ZIP.
           </p>
           <div className="mt-8 grid grid-cols-3 gap-2 sm:gap-3">
             {[
