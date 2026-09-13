@@ -1,5 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { GhostLink } from "@/components/buttons";
+import { ItemGraphics } from "@/components/item-graphics";
 import { JsonLd } from "@/components/json-ld";
 import {
   FURNITURE_CATEGORIES,
@@ -7,7 +8,7 @@ import {
   getFurniture,
   relatedFurniture,
 } from "@/lib/furniture";
-import { SITE, money, photoForPlace, priceForUnits } from "@/lib/site";
+import { SITE, money, priceForUnits } from "@/lib/site";
 import {
   faqJsonLd,
   furnitureBreadcrumbJsonLd,
@@ -37,7 +38,6 @@ export const Route = createFileRoute("/furniture-removal/$slug")({
 
 function FurnitureTypePage() {
   const piece = Route.useLoaderData();
-  const photo = photoForPlace(piece.slug);
   const faqs = furnitureFaqs(piece);
   const related = relatedFurniture(piece);
   const category = FURNITURE_CATEGORIES.find((c) => c.id === piece.category);
@@ -106,19 +106,11 @@ function FurnitureTypePage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <div className="max-w-3xl">
-          <h2 className="font-display text-3xl font-semibold tracking-tight">
-            How we haul a {piece.name.toLowerCase()}.
-          </h2>
-          <p className="mt-3 text-sm leading-relaxed text-mist">{piece.haul}</p>
-          <img
-            src={photo.src}
-            alt={`${piece.name} removal in San Diego — ${photo.alt}`}
-            className="photo mt-8 aspect-4/3 w-full rounded-2xl object-cover"
-            width={photo.w}
-            height={photo.h}
-          />
-        </div>
+        <h2 className="font-display text-3xl font-semibold tracking-tight">
+          How we haul a {piece.name.toLowerCase()}.
+        </h2>
+        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-mist">{piece.haul}</p>
+        <ItemGraphics piece={piece} curb={priced.curb} />
       </section>
 
       <section className="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
