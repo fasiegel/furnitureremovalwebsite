@@ -1,6 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { GhostLink } from "@/components/buttons";
-import { Estimator } from "@/components/estimator";
 import { JsonLd } from "@/components/json-ld";
 import {
   FURNITURE_CATEGORIES,
@@ -106,8 +105,8 @@ function FurnitureTypePage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2">
-        <div>
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+        <div className="max-w-3xl">
           <h2 className="font-display text-3xl font-semibold tracking-tight">
             How we haul a {piece.name.toLowerCase()}.
           </h2>
@@ -120,7 +119,6 @@ function FurnitureTypePage() {
             height={photo.h}
           />
         </div>
-        <Estimator key={piece.slug} initialCounts={furnitureCounts(piece)} showBook={false} />
       </section>
 
       <section className="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
