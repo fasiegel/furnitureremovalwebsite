@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { SITE, PLACES } from "@/lib/site";
-import { BookLink, GhostLink } from "./buttons";
+import { GhostLink } from "./buttons";
 import { BrandMark } from "./mark";
 import { Stars } from "./stars";
 
@@ -31,9 +31,6 @@ export function SiteFooter() {
             Same-day crews running now. Price is locked in the estimator before anyone knocks.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <BookLink href={SITE.bookHref} rel="nofollow noopener noreferrer">
-              Book now
-            </BookLink>
             <GhostLink
               href={SITE.textHref}
               className="border-kelp-fg/20 text-kelp-fg hover:bg-kelp-fg/10"

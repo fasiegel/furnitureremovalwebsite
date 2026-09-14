@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check, Clock, MapPin, Recycle, Shield } from "lucide-react";
 import type { ReactNode } from "react";
-import { BookLink } from "@/components/buttons";
 import { CategoryMark } from "@/components/category-mark";
 import { Estimator } from "@/components/estimator";
 import { FaqList } from "@/components/faq";
@@ -216,11 +215,6 @@ function Home() {
             landing — this is what we do. Save your back. You don’t have to drag a sectional down two
             flights of stairs when our two-person crew has the experience to get it done safely.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <BookLink href={SITE.bookHref} rel="nofollow noopener noreferrer">
-              Book now
-            </BookLink>
-          </div>
         </div>
       </section>
 

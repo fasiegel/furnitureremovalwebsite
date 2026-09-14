@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Clock, MapPin, MessageSquare } from "lucide-react";
-import { BookLink, GhostLink } from "@/components/buttons";
+import { GhostLink } from "@/components/buttons";
 import { JsonLd } from "@/components/json-ld";
 import { SITE } from "@/lib/site";
 import { localBusinessJsonLd, pageMeta } from "@/lib/seo";
@@ -53,9 +53,6 @@ function ContactPage() {
       </div>
 
       <div className="mt-10 flex flex-wrap gap-3">
-        <BookLink href={SITE.bookHref} rel="nofollow noopener noreferrer">
-          Book now
-        </BookLink>
         <GhostLink href={SITE.textHref}>Text a photo</GhostLink>
       </div>
 

@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { BookLink, GhostLink } from "./buttons";
+import { GhostLink } from "./buttons";
 import { SITE } from "@/lib/site";
 
 export function NotFoundPage() {
@@ -20,9 +20,6 @@ export function NotFoundPage() {
         >
           Back home
         </Link>
-        <BookLink href={SITE.bookHref} rel="nofollow noopener noreferrer">
-          Book now
-        </BookLink>
         <GhostLink href={SITE.textHref}>Text us</GhostLink>
       </div>
     </main>

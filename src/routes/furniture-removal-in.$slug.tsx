@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { BookLink, GhostLink } from "@/components/buttons";
+import { GhostLink } from "@/components/buttons";
 import { Estimator } from "@/components/estimator";
 import { JsonLd } from "@/components/json-ld";
 import {
@@ -78,9 +78,6 @@ function NeighborhoodPage() {
           donation partners. The rest is recycled, not dumped.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
-          <BookLink href={SITE.bookHref} rel="nofollow noopener noreferrer">
-            Book now
-          </BookLink>
           <GhostLink href={SITE.textHref}>Text us</GhostLink>
         </div>
       </section>
@@ -213,9 +210,6 @@ function NeighborhoodPage() {
             anyone knocks.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <BookLink href={SITE.bookHref} rel="nofollow noopener noreferrer">
-              Book now
-            </BookLink>
             <GhostLink
               href={SITE.textHref}
               className="border-kelp-fg/20 text-kelp-fg hover:bg-kelp-fg/10"
