@@ -45,9 +45,8 @@ function Home() {
             Low price furniture removal in San Diego.
           </h1>
           <p className="mt-4 max-w-lg text-base leading-relaxed text-mist sm:text-lg">
-            We haul couches, dressers, and dining sets from homes, walk-ups, and HOAs across
-            central San Diego. Most jobs take under twenty minutes. Usable pieces get donated —
-            the rest is recycled, not dumped.
+            We haul couches, dressers, and dining sets across central San Diego. Most jobs take
+            under twenty minutes. Usable pieces get donated and reused.
           </p>
           <ul className="mt-6 space-y-2 text-sm">
             {[
