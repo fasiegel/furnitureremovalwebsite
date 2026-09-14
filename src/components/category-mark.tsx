@@ -46,10 +46,10 @@ const ICONS: Record<FurnitureCategoryId, (props: { className?: string }) => Reac
 
 const TONE: Record<FurnitureCategoryId, string> = {
   seating: "bg-kelp text-kelp-fg",
-  beds: "bg-ink text-cream",
-  mattresses: "bg-kelp-hover text-kelp-fg",
+  beds: "bg-book text-book-fg",
+  mattresses: "bg-ink text-cream",
   tables: "bg-cream text-kelp ring-1 ring-kelp/30",
-  storage: "bg-kelp text-kelp-fg",
+  storage: "bg-book text-book-fg",
 };
 
 export function CategoryMark({

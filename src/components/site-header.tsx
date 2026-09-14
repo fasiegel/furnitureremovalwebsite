@@ -7,15 +7,15 @@ import { Stars } from "./stars";
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-line/80 bg-paper/90 backdrop-blur-md">
-      <div className="bg-kelp text-kelp-fg">
+      <div className="bg-book text-book-fg">
         <p className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-2 gap-y-1 px-4 py-2.5 text-center text-xs leading-snug sm:px-6 sm:text-sm">
-          <Stars className="hidden text-kelp-fg sm:inline-flex" />
+          <Stars className="hidden text-book-fg sm:inline-flex" />
           <span>
             {SITE.name} is a service provided by{" "}
             <span className="font-semibold">{SITE.parent.name}</span>
-            <span className="text-kelp-fg/80"> — {SITE.parent.claim}</span>
+            <span className="text-book-fg/80"> — {SITE.parent.claim}</span>
           </span>
-          <Stars className="hidden text-kelp-fg sm:inline-flex" />
+          <Stars className="hidden text-book-fg sm:inline-flex" />
         </p>
       </div>
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">

@@ -18,7 +18,7 @@ export function CalculatorPromo() {
         className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/35 to-ink/10"
         aria-hidden="true"
       />
-      <span className="absolute left-5 top-5 grid size-20 place-items-center rounded-2xl bg-cream text-kelp shadow-sm sm:size-24">
+      <span className="absolute left-5 top-5 grid size-20 place-items-center rounded-2xl bg-book text-book-fg shadow-sm sm:size-24">
         <span className="text-center">
           <span className="block text-[10px] font-semibold uppercase tracking-widest">from</span>
           <span className="block font-display text-3xl font-semibold leading-none tracking-tight sm:text-4xl">
@@ -33,7 +33,7 @@ export function CalculatorPromo() {
         <span className="mt-2 block font-display text-2xl font-semibold leading-tight tracking-tight sm:text-3xl">
           Use our furniture removal cost calculator for guaranteed prices.
         </span>
-        <span className="mt-5 inline-flex h-12 items-center rounded-lg bg-cream px-5 text-sm font-medium text-ink transition-colors duration-150 group-hover:bg-white">
+        <span className="mt-5 inline-flex h-12 items-center rounded-lg bg-book px-5 text-sm font-medium text-book-fg transition-colors duration-150 group-hover:bg-book-hover">
           Open the calculator
         </span>
       </span>

@@ -19,7 +19,7 @@ export const Route = createRootRoute({
         content:
           "Same-day furniture removal in San Diego. Couches, dressers, and dining sets from $69 curbside. Donated or recycled locally. Licensed, insured, veteran owned.",
       },
-      { name: "theme-color", content: "#215853" },
+      { name: "theme-color", content: "#123a8c" },
       { name: "robots", content: "index, follow, max-image-preview:large" },
       { name: "author", content: SITE.name },
       { name: "geo.region", content: GEO.region },
