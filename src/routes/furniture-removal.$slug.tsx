@@ -107,9 +107,27 @@ function FurnitureTypePage() {
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <h2 className="font-display text-3xl font-semibold tracking-tight">
-          How we haul a {piece.name.toLowerCase()}.
+          How we remove a {piece.name.toLowerCase()}.
         </h2>
-        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-mist">{piece.haul}</p>
+        <p className="mt-3 max-w-2xl text-base leading-relaxed text-mist">
+          We do the heavy lifting so you don’t have to.
+        </p>
+        <ul className="mt-8 grid max-w-3xl gap-3 sm:grid-cols-2">
+          {[
+            "Careful of your property — floors, walls, railings, and doorframes.",
+            "Two strong, experienced furniture movers on every job.",
+            "Dollies and hand trucks for the heavy pieces.",
+            "We plan the path out so the removal is as smooth as possible.",
+            "21 years moving large, bulky furniture through San Diego doorways.",
+          ].map((line) => (
+            <li
+              key={line}
+              className="rounded-2xl border border-line bg-cream px-4 py-3 text-sm leading-relaxed"
+            >
+              {line}
+            </li>
+          ))}
+        </ul>
         <ItemGraphics piece={piece} curb={priced.curb} full={full} />
       </section>
 
