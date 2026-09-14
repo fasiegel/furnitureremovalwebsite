@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { CategoryMark } from "@/components/category-mark";
 import { JsonLd } from "@/components/json-ld";
 import { furnitureByCategory, furniturePath } from "@/lib/furniture";
 import { SITE } from "@/lib/site";
@@ -54,8 +55,13 @@ function WhatWeRemovePage() {
 
       {groups.map((group) => (
         <section key={group.id} id={group.id} className="mt-14 scroll-mt-28">
-          <h2 className="font-display text-3xl font-semibold tracking-tight">{group.label}</h2>
-          <p className="mt-2 text-sm text-mist">{group.blurb}</p>
+          <div className="flex items-center gap-4">
+            <CategoryMark id={group.id} className="size-12" />
+            <div>
+              <h2 className="font-display text-3xl font-semibold tracking-tight">{group.label}</h2>
+              <p className="mt-1 text-sm text-mist">{group.blurb}</p>
+            </div>
+          </div>
           <ul className="mt-6 grid gap-3 sm:grid-cols-2">
             {group.items.map((item) => (
               <li key={item.slug}>

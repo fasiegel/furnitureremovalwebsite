@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check, Clock, MapPin, Recycle, Shield } from "lucide-react";
 import type { ReactNode } from "react";
 import { BookLink } from "@/components/buttons";
+import { CategoryMark } from "@/components/category-mark";
 import { Estimator } from "@/components/estimator";
 import { FaqList } from "@/components/faq";
 import { JobGallery } from "@/components/job-gallery";
@@ -100,21 +101,20 @@ function Home() {
           Recliners, sectionals, cribs, china cabinets — each piece has its own page and a posted
           price.
         </p>
-        <div className="mt-8 grid gap-3 sm:grid-cols-2">
+        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
           {furnitureByCategory().map((group) => (
             <a
               key={group.id}
               href={`/what-we-remove#${group.id}`}
-              className="rounded-2xl border border-line bg-cream p-5 transition-colors duration-150 hover:bg-white"
+              className="flex flex-col gap-4 rounded-2xl border border-line bg-cream p-5 transition-colors duration-150 hover:bg-white"
             >
-              <p className="font-display text-lg font-semibold tracking-tight">{group.label}</p>
-              <p className="mt-1 text-sm text-mist">
-                {group.items
-                  .slice(0, 4)
-                  .map((item) => item.name)
-                  .join(", ")}
-                , and more.
-              </p>
+              <CategoryMark id={group.id} />
+              <span>
+                <span className="block font-display text-lg font-semibold tracking-tight">
+                  {group.label}
+                </span>
+                <span className="mt-1 block text-sm text-mist">{group.blurb}</span>
+              </span>
             </a>
           ))}
         </div>
