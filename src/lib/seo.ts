@@ -118,9 +118,7 @@ export function localBusinessJsonLd(area?: Place) {
     parentOrganization: {
       "@type": "LocalBusiness",
       name: SITE.parent.name,
-      url: SITE.parent.href,
     },
-    sameAs: [SITE.parent.href, SITE.mattressHref],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "San Diego furniture removal",

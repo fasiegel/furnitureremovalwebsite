@@ -79,16 +79,6 @@ export function SiteFooter() {
                     What we take
                   </Link>
                 </li>
-                <li>
-                  <a href={SITE.mattressHref} className="hover:text-cream">
-                    Mattress removal
-                  </a>
-                </li>
-                <li>
-                  <a href={SITE.parent.href} className="hover:text-cream">
-                    {SITE.parent.name}
-                  </a>
-                </li>
               </ul>
             </div>
             <div>

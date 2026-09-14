@@ -1,6 +1,6 @@
 # San Diego Furniture Removal
 
-Live site for [furnitureremovalsandiego.com](https://www.furnitureremovalsandiego.com) — same-day furniture pickup and haul-away across San Diego County. A Fred’s Junk Removal brand, sibling to [mattressremovalsandiego.com](https://www.mattressremovalsandiego.com).
+Live site for [furnitureremovalsandiego.com](https://www.furnitureremovalsandiego.com) — same-day furniture pickup and haul-away across San Diego County.
 
 ## Stack
 

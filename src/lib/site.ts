@@ -12,11 +12,9 @@ export const SITE = {
   address: "1455 Kettner Blvd #1502, San Diego, CA 92101",
   mapsHref:
     "https://www.google.com/maps/search/?api=1&query=1455%20Kettner%20Blvd%201502%20San%20Diego%20CA%2092101",
-  mattressHref: "https://www.mattressremovalsandiego.com/",
   parent: {
     name: "Fred's Junk Removal",
     claim: "San Diego’s top-rated and most trusted junk removal service",
-    href: "https://www.fredsjunkremoval.com/",
   },
 } as const;
 
