@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { GhostLink } from "@/components/buttons";
-import { Estimator } from "@/components/estimator";
+import { CalculatorPromo } from "@/components/calculator-promo";
 import { JsonLd } from "@/components/json-ld";
 import {
   PLACES,
@@ -132,7 +132,7 @@ function NeighborhoodPage() {
             height={photo.h}
           />
         </div>
-        <Estimator />
+        <CalculatorPromo />
       </section>
 
       <section className="border-y border-line bg-cream">
@@ -206,8 +206,8 @@ function NeighborhoodPage() {
             Ready to clear the room in {place.name}?
           </h2>
           <p className="mt-3 max-w-lg text-sm text-kelp-fg/80">
-            Same-day furniture removal in ZIP {place.zip}. Price is locked in the estimator before
-            anyone knocks.
+            Same-day furniture removal in ZIP {place.zip}. Use the cost calculator for guaranteed
+            prices.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <GhostLink

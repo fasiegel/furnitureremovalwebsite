@@ -20,7 +20,7 @@ export function Estimator({ showBook = true }: { showBook?: boolean }) {
   }
 
   return (
-    <div className="rounded-2xl border border-line bg-cream p-4 sm:p-6">
+    <div id="calculator" className="rounded-2xl border border-line bg-cream p-4 sm:p-6">
       <p className="text-xs font-semibold uppercase tracking-widest text-mist">Cost calculator</p>
       <h2 className="mt-1 font-display text-xl font-semibold tracking-tight">What are we taking?</h2>
       <p className="mt-1 text-xs text-mist">Pick the pieces, then curbside or full service.</p>

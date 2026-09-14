@@ -55,13 +55,17 @@ const TONE: Record<FurnitureCategoryId, string> = {
 export function CategoryMark({
   id,
   className = "size-14",
+  plain = false,
 }: {
   id: FurnitureCategoryId;
   className?: string;
+  plain?: boolean;
 }) {
   const Icon = ICONS[id];
   return (
-    <span className={`grid place-items-center rounded-2xl ${TONE[id]} ${className}`}>
+    <span
+      className={`grid place-items-center rounded-2xl ${plain ? "" : TONE[id]} ${className}`}
+    >
       <Icon className="size-8" />
     </span>
   );
