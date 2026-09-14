@@ -191,7 +191,7 @@ export const ITEMS: Item[] = [
   { id: "dresser", label: "Dresser", units: 1 },
   { id: "desk", label: "Desk", units: 1 },
   { id: "diningTable", label: "Dining table", units: 1 },
-  { id: "diningChair", label: "Dining chair", units: 0.5 },
+  { id: "diningChair", label: "Dining chair", units: 0.25 },
   { id: "coffeeTable", label: "Coffee table", units: 1 },
   { id: "tvStand", label: "TV stand", units: 1 },
   { id: "nightstand", label: "Nightstand", units: 0.5 },
