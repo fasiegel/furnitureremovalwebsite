@@ -294,7 +294,7 @@ function Home() {
             </li>
             <li className="flex gap-2">
               <Check className="mt-0.5 size-4 shrink-0 text-kelp" />
-              Mattresses and box springs ride along as a sister service.
+              Mattresses and box springs are often removed with the furniture.
             </li>
           </ul>
         </div>

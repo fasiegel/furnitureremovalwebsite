@@ -82,7 +82,7 @@ export const FURNITURE: FurniturePiece[] = [
     name: "Ottoman",
     category: "seating",
     description: "A low, cushioned seat or footstool with no back or arms.",
-    haul: "Ottomans ride along with the sofa. Alone they count as a small piece — we still pick up same day.",
+    haul: "Ottomans are often removed with the sofa. Alone they count as a small piece — we still pick up same day.",
     units: 0.5,
   },
   {
@@ -186,7 +186,7 @@ export const FURNITURE: FurniturePiece[] = [
     name: "Bassinet",
     category: "beds",
     description: "A small basket-like bed specifically designed for newborns.",
-    haul: "Bassinets are a small piece. They ride with the crib, glider, or whatever else is leaving the nursery.",
+    haul: "Bassinets are a small piece. They are often removed with the crib, glider, or whatever else is leaving the nursery.",
     units: 0.5,
   },
   {
@@ -226,7 +226,7 @@ export const FURNITURE: FurniturePiece[] = [
     name: "Queen / full box spring",
     category: "mattresses",
     description: "A queen or full box spring. Same posted price for either size.",
-    haul: "Box springs ride under the mattress. We take the set together so you are not left with the wood frame.",
+    haul: "Box springs are often removed with the mattress. We take the set together so you are not left with the wood frame.",
     units: 1,
   },
   {
@@ -274,7 +274,7 @@ export const FURNITURE: FurniturePiece[] = [
     name: "End table",
     category: "tables",
     description: "A small table placed beside the end of a sofa or armchair.",
-    haul: "End tables ride with the sofa. We take pairs, nested sets, and the one with the broken drawer.",
+    haul: "End tables are often removed with the sofa. We take pairs, nested sets, and the one with the broken drawer.",
     units: 0.5,
   },
   {
