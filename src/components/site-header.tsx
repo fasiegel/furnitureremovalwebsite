@@ -25,7 +25,7 @@ export function SiteHeader() {
             <span className="block truncate font-display text-sm font-semibold leading-tight tracking-tight sm:text-base">
               {SITE.name}
             </span>
-            <span className="hidden text-xs text-mist sm:block">From $69 · Same-day</span>
+            <span className="hidden text-xs text-mist sm:block">From $69 · guaranteed prices</span>
           </span>
         </Link>
         <nav className="flex items-center gap-2">
